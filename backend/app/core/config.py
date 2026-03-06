@@ -21,12 +21,12 @@ class Settings(BaseSettings):
     CELERY_BROKER_URL: str
     CELERY_RESULT_BACKEND: str
     
-    # CORS
-    ALLOWED_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:5173"]
-    
+    # CORS (comma-separated string — parsed into list in main.py)
+    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:5173"
+
     # Environment
     ENVIRONMENT: str = "development"
-    
+
     class Config:
         env_file = ".env"
         case_sensitive = True
