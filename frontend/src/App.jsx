@@ -213,16 +213,19 @@ function PublicLandingPage() {
 function RoadmapPage() {
   return (
     <div className="roadmap-page">
-      <header className="roadmap-header">
-        <p className="roadmap-eyebrow">Project Presentation View</p>
-        <h1>MediSecure Product Roadmap and Scale Strategy</h1>
-        <p className="roadmap-subtitle">
-          A complete overview of what problem MediSecure solves, how it is designed for universal use,
-          and the phased path from MVP to national-scale platform operations.
-        </p>
+      <header className="roadmap-header-card">
+        <div>
+          <p className="roadmap-eyebrow">Project Presentation View</p>
+          <h1>MediSecure Product Roadmap and Scale Strategy</h1>
+          <p className="roadmap-subtitle">
+            A complete overview of what problem MediSecure solves, how it is designed for universal use,
+            and the phased path from MVP to national-scale platform operations.
+          </p>
+        </div>
+        <a className="btn-primary" href="/">Back to Landing</a>
       </header>
 
-      <section className="roadmap-section">
+      <section className="roadmap-section roadmap-panel">
         <h2>Purpose</h2>
         <p>
           MediSecure is a secure healthcare workflow platform that unifies patient onboarding,
@@ -230,7 +233,7 @@ function RoadmapPage() {
         </p>
       </section>
 
-      <section className="roadmap-section">
+      <section className="roadmap-section roadmap-panel">
         <h2>Current Market Disconnects</h2>
         <div className="roadmap-notes">
           {marketDisconnects.map((item) => (
@@ -241,7 +244,7 @@ function RoadmapPage() {
         </div>
       </section>
 
-      <section className="roadmap-section">
+      <section className="roadmap-section roadmap-panel">
         <h2>Universal Platform Design</h2>
         <div className="roadmap-notes">
           {universalDesign.map((item) => (
@@ -252,11 +255,12 @@ function RoadmapPage() {
         </div>
       </section>
 
-      <section className="roadmap-section">
+      <section className="roadmap-section roadmap-panel">
         <h2>Execution Plan</h2>
         <div className="roadmap-grid">
-          {roadmap.map((phase) => (
+          {roadmap.map((phase, idx) => (
             <article key={phase.phase} className="roadmap-card">
+              <span className="roadmap-step">{idx + 1}</span>
               <h3>{phase.phase}</h3>
               <ul>
                 {phase.outcomes.map((item) => <li key={item}>{item}</li>)}
@@ -266,7 +270,7 @@ function RoadmapPage() {
         </div>
       </section>
 
-      <section className="roadmap-section">
+      <section className="roadmap-section roadmap-panel">
         <h2>Success Metrics</h2>
         <div className="roadmap-notes">
           {roadmapKpis.map((item) => (
@@ -276,10 +280,6 @@ function RoadmapPage() {
           ))}
         </div>
       </section>
-
-      <div className="roadmap-actions">
-        <a className="btn-primary" href="/">Back to Landing</a>
-      </div>
     </div>
   );
 }
